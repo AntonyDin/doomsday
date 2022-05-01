@@ -73,10 +73,10 @@ end
 def check_victory?
   if @humans <= 0 and @machines > 0
     puts "Машины победили"
-    exit
+    true
   elsif @machines <= 0 and @humans > 0
     puts "Победили люди"
-    exit
+    true
   end
 end
 
@@ -84,6 +84,7 @@ end
 loop do
 # вызываем метод проерки победы
   if check_victory?
+    exit
   end
   # в зависимости от выбрашенной игральной кости, идет событие
   case dice = rand(1..3)
