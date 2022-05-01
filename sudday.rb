@@ -22,6 +22,21 @@ def boom
   end
 end
 
+def health?
+  rand(0..1) == 1
+end
+
+def treat
+  diff = rand(1..3)
+  if health?
+    @machines += diff
+    puts "#{diff} машин починили"
+  else
+    @humans += diff
+    puts "#{diff} людей вылечили"
+  end
+end
+
 # Метод возвращает случайное название города
 def random_city
   case dice = rand(1..5)
@@ -53,18 +68,24 @@ def event1
   puts "Запущена ракета по городу #{random_city}"
   random_sleep
   boom
+  treat
+  stats
 end
 
 def event2
   puts "Применено радиоактивное оружие в городе #{random_city}"
   random_sleep
   boom
+  treat
+  stats
 end
 
 def event3
   puts "Группа солдат прорывает оборону противника в городе #{random_city}"
   random_sleep
   boom
+  treat
+  stats
 end
 #--------------------------------------------------------------------
 
